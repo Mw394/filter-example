@@ -15,7 +15,9 @@ import java.io.IOException;
 @ConstrainedTo(RuntimeType.SERVER)
 public class AuthFilter implements ContainerRequestFilter {
 
+    /*
 
+     */
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
         String authHeader = requestContext.getHeaders().getFirst("authorization");

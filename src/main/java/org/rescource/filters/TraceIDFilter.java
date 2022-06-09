@@ -15,6 +15,10 @@ import java.io.IOException;
 @Priority(1)
 @ConstrainedTo(RuntimeType.SERVER)
 public class TraceIDFilter implements ContainerRequestFilter {
+
+    /*
+    This filter checks if Reqeust contains a TraceID header.
+     */
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
         if (!requestContext.getHeaders().containsKey("TraceID")) {

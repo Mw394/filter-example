@@ -16,6 +16,10 @@ import java.time.LocalDateTime;
 @Priority(2)
 @Provider
 public class ResponseLogFilter implements ContainerResponseFilter {
+
+    /*
+    This filter logs all responses sent back to requester.
+     */
     @Override
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {
         System.out.println("Response for: " + requestContext.getRequest().getMethod() + " sent at " + LocalDateTime.now().toString() );

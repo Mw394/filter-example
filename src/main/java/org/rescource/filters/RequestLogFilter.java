@@ -16,6 +16,9 @@ import java.util.Date;
 @Provider
 public class RequestLogFilter implements ContainerRequestFilter {
 
+    /*
+    This filter logs all incomming request, in the event they pass the TraceID filter.
+     */
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
         System.out.println("Log1: Request received at " + LocalDateTime.now().toString() + " for " + requestContext.getMethod());
