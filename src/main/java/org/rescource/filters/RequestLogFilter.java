@@ -1,7 +1,9 @@
 package org.rescource.filters;
 
 import io.quarkus.arc.Priority;
+import org.jboss.logging.Logger;
 
+import javax.inject.Inject;
 import javax.ws.rs.ConstrainedTo;
 import javax.ws.rs.RuntimeType;
 import javax.ws.rs.container.ContainerRequestContext;
@@ -16,12 +18,16 @@ import java.util.Date;
 @Provider
 public class RequestLogFilter implements ContainerRequestFilter {
 
+    @Inject
+    Logger logger;
+
     /*
     This filter logs all incomming request, in the event they pass the TraceID filter.
      */
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
-        System.out.println("Log1: Request received at " + LocalDateTime.now().toString() + " for " + requestContext.getMethod());
+        logger.info("Request received at " + LocalDateTime.now().toString() + " for " + requestContext.getMethod());
+        System.out.println("Request received at " + LocalDateTime.now().toString() + " for " + requestContext.getMethod());
     }
 
 
