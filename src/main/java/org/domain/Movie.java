@@ -1,9 +1,7 @@
-package org.rescource.dto;
+package org.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.domain.Movie;
+public class Movie {
 
-public class MovieDTO {
 
     private String title;
     private String director;
@@ -11,11 +9,11 @@ public class MovieDTO {
     private String id;
 
 
-    public MovieDTO(Movie movie) {
-        this.setTitle(movie.getTitle());
-        this.setDirector(movie.getDirector());
-        this.setReleaseYear(movie.getReleaseYear());
-        this.setId(movie.getId());
+    public Movie(String title, String director, int releaseYear, String id) {
+        this.setTitle(title);
+        this.setDirector(director);
+        this.setReleaseYear(releaseYear);
+        this.id = id;
     }
 
 
@@ -45,9 +43,5 @@ public class MovieDTO {
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 }
